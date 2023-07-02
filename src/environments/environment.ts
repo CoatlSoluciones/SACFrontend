@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    baseService: ''
+    baseService: 'http://localhost:8080'
 }
