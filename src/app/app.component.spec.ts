@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'SAC-UI'`, () => {
+  it(`should have as title 'SACAdmin'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('SAC-UI');
+    expect(app.title).toEqual('SACAdmin');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('SAC-UI app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('SACAdmin app is running!');
   });
 });

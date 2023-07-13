@@ -1,0 +1,61 @@
+<mat-toolbar>
+  <img src="../../../assets/img/icons/user.png" alt="User" class="toolbar-image">
+  <span class="toolbar-span">Usuarios</span>
+  <div class="example-spacer"></div>
+  <button mat-fab color="primary" aria-label="boton-borrar" matTooltip="Agregar"  class="my-fab">
+    <mat-icon>add</mat-icon>
+  </button>
+  <!-- <button mat-raised-button color="primary">Agregar</button> -->
+  <!-- <div class="example-spacer"></div> -->
+</mat-toolbar>
+<br>
+<div class="container">
+  <mat-spinner *ngIf="loading" diameter="50" class="spinner"></mat-spinner>
+  <div *ngIf="!loading && dataSource.data.length > 0">
+    <mat-form-field>
+      <mat-label>Buscar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+    </mat-form-field>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.name.first}} {{element.name.middle}} {{element.name.last}}
+            {{element.name.secondLast}}</td>
+        </ng-container>
+        <ng-container matColumnDef="birthday">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Edad </th>
+          <td mat-cell *matCellDef="let element"> {{element.birthday }} ({{element.birthday | age }}) </td>
+        </ng-container>
+        <ng-container matColumnDef="gender">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Género </th>
+          <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Correo electrónico </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Acción </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}}
+            <button mat-fab color="primary" aria-label="Example icon button with a delete icon" matTooltip="Editar"
+              class="my-fab">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-fab color="warn" aria-label="Example icon button with a delete icon" matTooltip="Borrar"
+              class="my-fab">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <!-- <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr> -->
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
+  </div>
+  <h2 *ngIf="dataSource.data.length <= 0 && !loading" class="spinner">No hay usuarios para mostrar</h2>

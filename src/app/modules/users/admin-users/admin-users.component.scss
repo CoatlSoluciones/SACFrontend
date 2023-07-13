@@ -1,0 +1,58 @@
+.example-container {
+  height: 270px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.container {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.mat-toolbar {
+  background: teal;
+  color: #fff;
+}
+
+.toolbar-span {
+  font-size: 14px
+}
+
+.toolbar-image {
+  height: 40px;
+}
+
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.my-fab {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  margin: 5px;
+}
+
+/* th {
+  width: 20%;
+} */
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}

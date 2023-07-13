@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Torneos",
+        "link": "",
+        "icon": "../../../assets/img/icons/trophy.png",
+        "alt": "Icon-torneo"
+    },
+    {
+        "name": "Partidos",
+        "link": "",
+        "icon": "../../../assets/img/icons/game.png",
+        "alt": "Icon-partido"
+    },
+    {
+        "name": "Equipos",
+        "link": "",
+        "icon": "../../../assets/img/icons/soccer-team.png",
+        "alt": "Icon-equipo"
+    },
+    {
+        "name": "Jugadores",
+        "link": "",
+        "icon": "../../../assets/img/icons/player-icon.png",
+        "alt": "Icon-jugador"
+    },
+    {
+        "name": "Estadísticas",
+        "link": "",
+        "icon": "../../../assets/img/icons/statistics.png",
+        "alt": "Icon-estadistica"
+    },
+    {
+        "name": "Transmisiones",
+        "link": "",
+        "icon": "../../../assets/img/icons/transmission.png",
+        "alt": "Icon-transmision"
+    },
+    {
+        "name": "Documentos",
+        "link": "",
+        "icon": "../../../assets/img/icons/document.png",
+        "alt": ""
+    },
+    {
+        "name": "Imagenes",
+        "link": "",
+        "icon": "../../../assets/img/icons/image.png",
+        "alt": "Icon-imagen"
+    },
+    {
+        "name": "Tienda",
+        "link": "",
+        "icon": "../../../assets/img/icons/store.png",
+        "alt": "Icon-Tienda"
+    },
+    {
+        "name": "Usuarios",
+        "link": "/users/admin",
+        "icon": "../../../assets/img/icons/user.png",
+        "alt": "Icon-usuario"
+    }
+]
