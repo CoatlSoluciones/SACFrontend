@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,11 @@ import { AppRoutingModule } from './app-routing.module';
     SharedModule,
     CoreModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MAT_DATE_LOCALE, useValue: 'es'
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

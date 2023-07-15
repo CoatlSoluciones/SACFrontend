@@ -13,9 +13,18 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
+
   ],
   imports: [
     CommonModule,
@@ -33,8 +42,14 @@ import { RouterModule } from '@angular/router';
     NgIf,
     MatListModule,
     NgFor,
-    RouterModule
-  ],
+    RouterModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule
+    ],
   exports: [
     MatIconModule,
     MatButtonModule,
@@ -51,7 +66,13 @@ import { RouterModule } from '@angular/router';
     NgIf,
     MatListModule,
     NgFor,
-    RouterModule
+    RouterModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule
   ]
 })
 
