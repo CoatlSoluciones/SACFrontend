@@ -4,7 +4,7 @@ import { AdminusersComponent } from './admin-users/admin-users.component';
 
 const routes = [
     {
-        path: 'admin',
+        path: '',
         component: AdminusersComponent
     }
 ];

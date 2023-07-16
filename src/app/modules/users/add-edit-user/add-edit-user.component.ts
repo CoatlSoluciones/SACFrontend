@@ -1,3 +1,4 @@
+import { Binary } from '@angular/compiler';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
@@ -46,7 +47,7 @@ export class AddEditUserComponent implements OnInit {
   }
 
   cancel() {
-    this.dialogRef.close(false);
+    this.dialogRef.close();
   }
 
   isEdit(userId: number | undefined) {
@@ -65,12 +66,16 @@ export class AddEditUserComponent implements OnInit {
         secondLast: result.data.name.secondLast,
         email: result.data.email,
         gender: result.data.gender,
-        birthday: new Date(result.data.birthday)
+        //birthday: new Date(result.data.birthday.substring(0, 10))
+        birthday: result.data.birthday.substring(0, 10)
       });
+      console.log(result.data.birthday.substring(0, 10));
+      console.log(result.data.birthday.slice(0, 10));
     });
   }
 
   addEditUser() {
+  console.log(this.form.value.birthday.toISOString().slice(0,10));
     const newUser: any = {
       first: this.form.value.first,
       middle: this.form.value.middle,
@@ -82,36 +87,39 @@ export class AddEditUserComponent implements OnInit {
       userCreated: 1
     }
     
+    
     if (this.form.valid) {
       //let user = this.form.value;
       if (this.userId == undefined) {
               this._userService.addUser(newUser).subscribe((result: any) => {
         if (result.success) {
+          console.log(newUser)
           this._snackbar.open('El usuario se ha creado exitosamente', '', {
             duration: 5000,
             horizontalPosition: 'center',
             verticalPosition: 'bottom'
           });
-          this.router.navigate([
+/*           this.router.navigate([
             "/users/admin"
-          ]);
+          ]); */
         }
       })
       } else {
         this._userService.updateUser(this.userId, newUser).subscribe((result: any) => {
           if (result.success) {
+            console.log(newUser)
             this._snackbar.open('El usuario se ha actualizado exitosamente', '', {
               duration: 5000,
               horizontalPosition: 'center',
               verticalPosition: 'bottom'
             });
-            this.router.navigate([
+/*             this.router.navigate([
               "/users/admin"
-            ]);
+            ]); */
           }
         });
       }
-      this.dialogRef.close(true);
+      this.dialogRef.close();
     }
   }
 

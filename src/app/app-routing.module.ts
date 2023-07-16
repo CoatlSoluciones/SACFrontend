@@ -8,9 +8,17 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'users',
-        loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule)
+        path: 'admin/users',
+        loadChildren: () => import('./modules/users/users.module').then((m) => m.UsersModule)
       },
+      {
+        path: 'admin/players',
+        loadChildren: () => import('./modules/players/players.module').then((m) => m.PlayersModule)
+      },
+      {
+        path: 'admin/teams',
+        loadChildren:() => import('./modules/teams/teams.module').then((m) => m.TeamsModule)
+      }
 /*       {
         path: '**',
         loadChildren: () => import('./modules/not-found/not-found.module').then(m => m.NotFoundModule)

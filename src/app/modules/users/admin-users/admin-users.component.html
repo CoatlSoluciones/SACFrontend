@@ -2,7 +2,7 @@
   <img src="../../../assets/img/icons/user.png" alt="User" class="toolbar-image">
   <span class="toolbar-span">Usuarios</span>
   <div class="example-spacer"></div>
-  <button mat-fab color="primary" aria-label="boton-borrar" matTooltip="Agregar"  class="my-fab" (click)="addEditUser()">
+  <button mat-fab color="primary" aria-label="boton-borrar" matTooltip="Agregar" class="my-fab" (click)="addEditUser()">
     <mat-icon>add</mat-icon>
   </button>
   <!-- <button mat-raised-button color="primary">Agregar</button> -->
@@ -51,9 +51,11 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10" showFirstLastButtons aria-label="Select page of periodic elements">
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10" showFirstLastButtons
+        aria-label="Select page of periodic elements">
       </mat-paginator>
     </div>
     <br>
   </div>
-  <h2 *ngIf="dataSource.data.length <= 0 && !loading" class="spinner">No hay usuarios para mostrar</h2>
+  <h2 *ngIf="isError && !loading" class="spinner"><img src="../../../assets/img/icons/alert.png"><span>No se pueden mostrar los usuarios.</span></h2>
+  <h2 *ngIf="!isError && !loading && listUsers.length <=0" class="spinner"><img src="../../../assets/img/icons/information.png"><span>No hay usuarios registrados.</span> </h2>

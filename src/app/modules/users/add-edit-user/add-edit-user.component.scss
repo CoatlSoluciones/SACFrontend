@@ -13,5 +13,10 @@ mat-form-field {
 
 .error {
     color: rgba(196, 55, 55, 0.86);
-    //margin-top: 10px;
 }
+
+@media (max-width: 600px) {
+    .row {
+      flex-direction: column;
+    }
+  }

@@ -1,6 +1,6 @@
 export interface User {
     birthday: Date;
-    deleted: null;
+    deleted: Date;
     gender: string;
     created: Date;
     name: {
@@ -11,6 +11,6 @@ export interface User {
     };
     user_created: number;
     id: number;
-    user_deleted: null;
+    user_deleted: number;
     email: string;
   }

@@ -21,7 +21,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
   ],
   providers: [
     {
-      provide: MAT_DATE_LOCALE, useValue: 'es'
+      provide: MAT_DATE_LOCALE, useValue: 'es-MX'
     }
   ],
   bootstrap: [AppComponent]

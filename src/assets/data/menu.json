@@ -13,13 +13,13 @@
     },
     {
         "name": "Equipos",
-        "link": "",
+        "link": "/admin/teams",
         "icon": "../../../assets/img/icons/soccer-team.png",
         "alt": "Icon-equipo"
     },
     {
         "name": "Jugadores",
-        "link": "",
+        "link": "/admin/players",
         "icon": "../../../assets/img/icons/player-icon.png",
         "alt": "Icon-jugador"
     },
@@ -55,7 +55,7 @@
     },
     {
         "name": "Usuarios",
-        "link": "/users/admin",
+        "link": "/admin/users",
         "icon": "../../../assets/img/icons/user.png",
         "alt": "Icon-usuario"
     }

@@ -20,10 +20,10 @@ export class AdminusersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  _users$ = new BehaviorSubject<User[]>([]);
   listUsers: User[] = [];
   displayedColumns: string[] = ['name', 'gender', 'birthday', 'email', 'action'];
   loading = true;
+  isError = false;
   dataSource = new MatTableDataSource<any>;
 
   constructor(private userService: UserService, private _snackbar: MatSnackBar, public dialog: MatDialog) { }
@@ -49,10 +49,12 @@ export class AdminusersComponent implements OnInit {
           this.listUsers = result.data;
           this.dataSource = new MatTableDataSource(this.listUsers);
           this.loading = false;
+          this.isError = false;
         }
       },
       error: (error) => {
         this.loading = false;
+        this.isError = true;
       }
     });
   }
@@ -73,6 +75,7 @@ export class AdminusersComponent implements OnInit {
         if (result.success) {
           this.getUserList();
           this.loadPages();
+          //this.isError = false;
           this._snackbar.open('El usuario se ha eliminado','', {
             duration: 5000,
             horizontalPosition: 'center',
@@ -86,6 +89,7 @@ export class AdminusersComponent implements OnInit {
             horizontalPosition: 'center',
             verticalPosition: 'bottom'
           });
+          //this.isError = true;
         }
     });
   }
@@ -97,11 +101,9 @@ export class AdminusersComponent implements OnInit {
       data: {userId: userId},
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.getUserList();
+    dialogRef.afterClosed().subscribe((result) => {
       this.loadPages();
-      console.log('The dialog was closed');
-      //this.animal = result;
+      this.getUserList();
     });
   }
 
