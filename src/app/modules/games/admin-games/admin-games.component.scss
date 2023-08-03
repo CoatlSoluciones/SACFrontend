@@ -1,0 +1,59 @@
+.list {
+    width: 95%;
+    margin: auto;
+    margin-top: 2em;
+}
+
+.card {
+    display: grid;
+    //grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    grid-template-columns: repeat(auto-fit, 350px);
+    gap: 1em;
+    //margin-top: 1em;
+    justify-content: center;
+}
+
+.mat-toolbar {
+    background: teal;
+    color: #fff;
+}
+
+.toolbar-span {
+    font-size: 14px
+}
+
+.toolbar-image {
+    height: 40px;
+}
+
+.my-fab {
+    width: 40px;
+    height: 40px;
+    line-height: 35px;
+    margin: 5px;
+}
+
+.spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.spinner img {
+    //display: block;
+    width: 50px;
+    //transform: translate(-50%, -50%);
+
+}
+
+.spinner span {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    h2.spinner {
+        font-size: 10px;
+    }
+}
