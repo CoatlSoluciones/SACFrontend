@@ -2,15 +2,17 @@
     <img src="../../../assets/img/icons/soccer-team.png" alt="User" class="toolbar-image">
     <span class="toolbar-span"> Equipos</span>
     <div class="example-spacer"></div>
-    <button mat-fab color="primary" aria-label="boton-borrar" matTooltip="Agregar"  class="my-fab" >
+    <button mat-fab color="primary" aria-label="boton-borrar" matTooltip="Agregar" class="my-fab">
         <mat-icon>add</mat-icon>
-      </button>
-  </mat-toolbar>
+    </button>
+</mat-toolbar>
 <mat-spinner *ngIf="loading" diameter="50" class="spinner"></mat-spinner>
 <div class="list">
     <div class="card">
         <app-card-team *ngFor="let team of listTeams" [team]="team"></app-card-team>
     </div>
 </div>
-<h2 *ngIf="isError && !loading" class="spinner"><img src="../../../assets/img/icons/alert.png"><span>No se pueden mostrar los equipos.</span></h2>
-<h2 *ngIf="!isError && !loading && listTeams.length <= 0" class="spinner"><img src="../../../assets/img/icons/information.png"><span>No hay equipos registrados.</span></h2>
+<h2 *ngIf="isError && !loading" class="spinner"><img src="../../../assets/img/icons/alert.png"><span>No se pueden
+        mostrar los equipos en este momento.</span></h2>
+<h2 *ngIf="!isError && !loading && listTeams.length <= 0" class="spinner"><img
+        src="../../../assets/img/icons/information.png"><span>No hay equipos registrados.</span></h2>
