@@ -7,7 +7,7 @@
     },
     {
         "name": "Partidos",
-        "link": "",
+        "link": "/admin/games",
         "icon": "../../../assets/img/icons/game.png",
         "alt": "Icon-partido"
     },
