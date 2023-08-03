@@ -1,0 +1,30 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title-group>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <!-- <mat-card-subtitle>Medium</mat-card-subtitle> -->
+        </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content style="position: relative;display:flex;justify-content:center;align-items:left;flex-direction:column;">
+        <div style="display:flex;justify-content:center;align-items:center;">
+            <img mat-card-md-image src="../../../assets/img/icons/shield1.png"
+                style="width:70px;height:70px;margin:20px;border-radius:50%;">
+            <img mat-card-md-image src="../../../assets/img/icons/versus.png"
+                style="width:50px;height:50px;">
+            <img mat-card-md-image src="../../../assets/img/icons/shield2.png"
+                style="width:70px;height:70px;margin:20px;border-radius:50%;">
+        </div>
+        <h3>Nombre del juego: <!-- {{ game.name }} --></h3>
+    <h4>Árbitro: <!-- {{ game.referee.first }} {{ game.referee.middle }} {{ game.referee.last }} {{ game.referee.secondLast }} --></h4>
+    </mat-card-content>
+    <mat-card-actions class="my-card-actions">
+        <button mat-fab color="primary" aria-label="Example icon button with a delete icon" matTooltip="Editar"
+            class="my-fab">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-fab color="warn" aria-label="Example icon button with a delete icon" class="my-fab"
+            matTooltip="Borrar">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>
