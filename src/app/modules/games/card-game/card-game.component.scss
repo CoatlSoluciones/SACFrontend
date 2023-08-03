@@ -1,0 +1,21 @@
+.example-card {
+    max-width: 400px;
+    margin-bottom: 8px;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.my-fab {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    margin: 5px;
+}
+
+.my-card-actions {
+    display: flex;
+    justify-content: flex-end;
+}
