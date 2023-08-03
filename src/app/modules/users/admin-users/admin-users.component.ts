@@ -47,6 +47,7 @@ export class AdminusersComponent implements OnInit {
       next: (result: any) => {
         if (result.success) {
           this.listUsers = result.data;
+          console.log(this.listUsers);
           this.dataSource = new MatTableDataSource(this.listUsers);
           this.loading = false;
           this.isError = false;
