@@ -20,10 +20,10 @@ export class AddEditUserComponent implements OnInit {
   userId: number | undefined;
 
   constructor(
-    public dialogRef: MatDialogRef<AddEditUserComponent>, 
-    private fb: FormBuilder, 
-    private _userService: UserService, 
-    private _snackbar: MatSnackBar, 
+    public dialogRef: MatDialogRef<AddEditUserComponent>,
+    private fb: FormBuilder,
+    private _userService: UserService,
+    private _snackbar: MatSnackBar,
     private router: Router,
     private dateAdapter: DateAdapter<any>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -42,7 +42,7 @@ export class AddEditUserComponent implements OnInit {
     this.userId = data.userId;
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.isEdit(this.userId);
   }
 
@@ -66,7 +66,6 @@ export class AddEditUserComponent implements OnInit {
         secondLast: result.data.name.secondLast,
         email: result.data.email,
         gender: result.data.gender,
-        //birthday: new Date(result.data.birthday.substring(0, 10))
         birthday: result.data.birthday.substring(0, 10)
       });
       console.log(result.data.birthday.substring(0, 10));
@@ -75,7 +74,7 @@ export class AddEditUserComponent implements OnInit {
   }
 
   addEditUser() {
-  console.log(this.form.value.birthday.toISOString().slice(0,10));
+    console.log(this.form.value.birthday.toISOString().slice(0, 10));
     const newUser: any = {
       first: this.form.value.first,
       middle: this.form.value.middle,
@@ -83,39 +82,53 @@ export class AddEditUserComponent implements OnInit {
       secondLast: this.form.value.secondLast,
       email: this.form.value.email,
       gender: this.form.value.gender,
-      birthday: this.form.value.birthday.toISOString().slice(0,10),
+      birthday: this.form.value.birthday.toISOString().slice(0, 10),
       userCreated: 1
     }
-    
-    
+
+
     if (this.form.valid) {
-      //let user = this.form.value;
       if (this.userId == undefined) {
-              this._userService.addUser(newUser).subscribe((result: any) => {
-        if (result.success) {
-          console.log(newUser)
-          this._snackbar.open('El usuario se ha creado exitosamente', '', {
-            duration: 5000,
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom'
-          });
-/*           this.router.navigate([
-            "/users/admin"
-          ]); */
-        }
-      })
-      } else {
-        this._userService.updateUser(this.userId, newUser).subscribe((result: any) => {
+        this._userService.addUser(newUser).subscribe({
+          next:(result: any) => {
           if (result.success) {
-            console.log(newUser)
-            this._snackbar.open('El usuario se ha actualizado exitosamente', '', {
+            this._snackbar.open('El usuario se ha creado exitosamente', '', {
               duration: 5000,
               horizontalPosition: 'center',
               verticalPosition: 'bottom'
             });
-/*             this.router.navigate([
-              "/users/admin"
-            ]); */
+            /*           this.router.navigate([
+                        "/users/admin"
+                      ]); */
+          }},
+          error: (error) => {
+            this._snackbar.open('Error al crear el usuario', '', {
+              duration: 5000,
+              horizontalPosition: 'center',
+              verticalPosition: 'bottom'
+            });
+          }
+        });
+      } else {
+        this._userService.updateUser(this.userId, newUser).subscribe({
+          next: (result: any) => {
+            if (result.success) {
+              this._snackbar.open('El usuario se ha actualizado exitosamente', '', {
+                duration: 5000,
+                horizontalPosition: 'center',
+                verticalPosition: 'bottom'
+              });
+              /*             this.router.navigate([
+                            "/users/admin"
+                          ]); */
+            }
+          },
+          error: (error) => {
+            this._snackbar.open('Error al actualizar el usuario', '', {
+              duration: 5000,
+              horizontalPosition: 'center',
+              verticalPosition: 'bottom'
+            });
           }
         });
       }
