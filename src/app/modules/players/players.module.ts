@@ -5,19 +5,18 @@ import { PlayersRoutingModule } from './players-routing.module';
 import { AdminPlayersComponent } from './admin-players/admin-players.component';
 import { CardPlayerComponent } from './card-player/card-player.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-
-//import {MatCardModule} from '@angular/material/card';
+import { AgePipe } from 'src/app/pipes/age.pipe';
 
 @NgModule({
   declarations: [
+    AgePipe,
     AdminPlayersComponent,
     CardPlayerComponent
   ],
   imports: [
     CommonModule,
     PlayersRoutingModule,
-    SharedModule,
-    //MatCardModule
+    SharedModule
   ]
 })
 export class PlayersModule { }
