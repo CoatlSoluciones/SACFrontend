@@ -18,6 +18,10 @@ const routes: Routes = [
       {
         path: 'admin/teams',
         loadChildren:() => import('./modules/teams/teams.module').then((m) => m.TeamsModule)
+      },
+      {
+        path: 'admin/games',
+        loadChildren:() => import('./modules/games/games.module').then((m) => m.GamesModule)
       }
 /*       {
         path: '**',
