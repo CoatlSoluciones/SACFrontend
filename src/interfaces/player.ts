@@ -1,4 +1,5 @@
 export interface Player {
+    birthday: Date;
     id: number;
     name: {
         first: string;
@@ -6,7 +7,6 @@ export interface Player {
         last: string;
         secondLast: string;
     };
-    birthday: Date;
     gender: string;
     photo: string;
     identification: string;

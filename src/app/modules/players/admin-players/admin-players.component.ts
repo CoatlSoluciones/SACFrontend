@@ -26,7 +26,6 @@ export class AdminPlayersComponent implements OnInit {
       next: (result: any) => {
         if (result.success) {
           this.listPlayers = result.data;
-          console.log(this.listPlayers);
           this.loading = false;
           this.isError = false;
         }

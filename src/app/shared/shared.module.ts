@@ -20,11 +20,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
+import { AgePipe } from '../pipes/age.pipe';
 
 
 @NgModule({
   declarations: [
-
+    AgePipe
   ],
   imports: [
     CommonModule,
@@ -74,7 +75,8 @@ import {MatCardModule} from '@angular/material/card';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    AgePipe
   ]
 })
 
