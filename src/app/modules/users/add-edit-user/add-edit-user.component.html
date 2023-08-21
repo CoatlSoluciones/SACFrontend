@@ -7,17 +7,11 @@
           <mat-label>Nombre</mat-label>
           <input formControlName="first" matInput autocomplete="off" placeholder="">
           <!--           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
- --> <mat-hint class="error" *ngIf="form.get('first')?.hasError('required') && form.get('first')?.touched">Este campo es requerido</mat-hint>
- <mat-hint class="error" *ngIf="form.get('first')?.hasError('maxlength')">Solo se admiten 20 caracteres</mat-hint>
+ --> <mat-hint class="error" *ngIf="form.get('first')?.hasError('required') && form.get('first')?.touched">Este campo
+            es requerido</mat-hint>
+          <mat-hint class="error" *ngIf="form.get('first')?.hasError('maxlength')">Solo se admiten 20
+            caracteres</mat-hint>
         </mat-form-field>
-      </div>
-      <div class="column">
-        <p>
-          <mat-form-field appearance="fill">
-            <mat-label>Segundo nombre</mat-label>
-            <input formControlName="middle" matInput autocomplete="off" placeholder="">
-          </mat-form-field>
-        </p>
       </div>
     </div>
 
@@ -26,7 +20,8 @@
         <mat-form-field appearance="fill">
           <mat-label>Primer apellido</mat-label>
           <input formControlName="last" matInput autocomplete="off" placeholder="">
-          <mat-hint class="error" *ngIf="form.get('last')?.hasError('required') && form.get('last')?.touched">Este campo es requerido</mat-hint>
+          <mat-hint class="error" *ngIf="form.get('last')?.hasError('required') && form.get('last')?.touched">Este campo
+            es requerido</mat-hint>
 
         </mat-form-field>
       </div>
@@ -35,7 +30,35 @@
         <mat-form-field appearance="fill">
           <mat-label>Segundo apellido</mat-label>
           <input formControlName="secondLast" matInput autocomplete="off" placeholder="">
-          <mat-hint class="error" *ngIf="form.get('secondLast')?.hasError('required') && form.get('secondLast')?.touched">Este campo es requerido</mat-hint>
+          <mat-hint class="error"
+            *ngIf="form.get('secondLast')?.hasError('required') && form.get('secondLast')?.touched">Este campo es
+            requerido</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column">
+        <mat-form-field>
+          <mat-label>Género</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option *ngFor="let gender of genders" [value]="gender.name">
+              {{gender.name}}
+            </mat-option>
+          </mat-select>
+          <mat-hint class="error" *ngIf="form.get('gender')?.hasError('required') && form.get('gender')?.touched">Este
+            campo es requerido</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="column">
+        <mat-form-field>
+          <mat-label>Fecha de nacimiento</mat-label>
+          <input formControlName="birthday" matInput [matDatepicker]="picker">
+          <mat-hint class="error"
+            *ngIf="form.get('birthday')?.hasError('required') && form.get('birthday')?.touched">Este campo es
+            requerido</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
     </div>
@@ -46,41 +69,100 @@
           <mat-form-field appearance="fill">
             <mat-label>Correo electrónico</mat-label>
             <input formControlName="email" matInput autocomplete="off" placeholder="">
-            <mat-hint class="error" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">Este campo es requerido</mat-hint>
+            <mat-hint class="error" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">Este
+              campo es requerido</mat-hint>
           </mat-form-field>
         </p>
       </div>
-    </div>
-    <div class="row">
       <div class="column">
-        <mat-form-field>
-          <mat-label>Género</mat-label>
-          <mat-select formControlName="gender">
-            <mat-option *ngFor="let gender of genders" [value]="gender">
-              {{gender}}
-            </mat-option>
-          </mat-select>
-          <mat-hint class="error" *ngIf="form.get('gender')?.hasError('required') && form.get('gender')?.touched">Este campo es requerido</mat-hint>
-        </mat-form-field>
-      </div>
-      <div class="column">
-        <mat-form-field>
-          <mat-label>Fecha de nacimiento</mat-label>
-          <input formControlName="birthday" matInput [matDatepicker]="picker">
-          <mat-hint class="error" *ngIf="form.get('birthday')?.hasError('required') && form.get('birthday')?.touched">Este campo es requerido</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+        <mat-form-field appearance="fill">
+          <mat-label>Teléfono</mat-label>
+          <input formControlName="phone" matInput autocomplete="off" placeholder="">
+          <mat-hint class="error" *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched">Este
+            campo es
+            requerido</mat-hint>
         </mat-form-field>
       </div>
     </div>
 
     <div class="row">
 
+      <div class="row">
+        <div class="column">
+          <mat-form-field>
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="state">
+              <mat-option *ngFor="let state of states" [value]="state.name">
+                {{state.name}}
+              </mat-option>
+            </mat-select>
+            <mat-hint class="error" *ngIf="form.get('state')?.hasError('required') && form.get('state')?.touched">Este
+              campo es requerido</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>Municipio</mat-label>
+          <input formControlName="municipality" matInput autocomplete="off" placeholder="">
+          <mat-hint class="error"
+            *ngIf="form.get('municipality')?.hasError('required') && form.get('municipality')?.touched">Este campo es
+            requerido</mat-hint>
+        </mat-form-field>
+      </div>
+
+
+    </div>
+
+    <div class="row">
+
+      <div class="column">
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Localidad</mat-label>
+            <input formControlName="town" matInput autocomplete="off" placeholder="">
+            <mat-hint class="error" *ngIf="form.get('town')?.hasError('required') && form.get('town')?.touched">Este
+              campo es
+              requerido</mat-hint>
+          </mat-form-field>
+        </p>
+      </div>
+
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>Código postal</mat-label>
+          <input formControlName="postalCode" matInput autocomplete="off" placeholder="">
+          <!--           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+ --> <mat-hint class="error"
+            *ngIf="form.get('postalCode')?.hasError('required') && form.get('postalCode')?.touched">Este campo
+            es requerido</mat-hint>
+          <mat-hint class="postalCode" *ngIf="form.get('postalCode')?.hasError('maxlength')">Solo se admiten 20
+            caracteres</mat-hint>
+        </mat-form-field>
+      </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="column">
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Calle</mat-label>
+            <input formControlName="street" matInput autocomplete="off" placeholder="">
+            <mat-hint class="error" *ngIf="form.get('street')?.hasError('required') && form.get('street')?.touched">Este
+              campo es
+              requerido</mat-hint>
+          </mat-form-field>
+        </p>
+      </div>
     </div>
 
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button type="button" mat-button (click)="cancel()">Cancelar</button>
-    <button [disabled]="form.invalid" type="submit" mat-button cdkFocusInitial>Aceptar</button>
+    <button [disabled]="form.invalid" type="submit" mat-button>Aceptar</button>
   </mat-dialog-actions>
 </form>
