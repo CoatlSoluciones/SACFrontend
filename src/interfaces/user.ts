@@ -9,6 +9,13 @@ export interface User {
       middle: string;
       secondLast: string;
     };
+    address: {
+      postalCode: string;
+      street: string;
+      state: string;
+      town: string;
+      municipality: string;
+    };
     user_created: number;
     id: number;
     user_deleted: number;
