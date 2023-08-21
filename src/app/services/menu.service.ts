@@ -10,7 +10,6 @@ export class MenuService {
 
   constructor(private http: HttpClient) { }
 
-  // Cargar menú desde un archivo JSON
   getMenu(): Observable<Menu[]> {
     return this.http.get<Menu[]>('./assets/data/menu.json');
   }
