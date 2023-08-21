@@ -20,7 +20,7 @@
       <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
-          <td mat-cell *matCellDef="let element"> {{element.name.first}} {{element.name.middle}} {{element.name.last}}
+          <td mat-cell *matCellDef="let element"> {{element.name.first}} {{element.name.last}}
             {{element.name.secondLast}}</td>
         </ng-container>
         <ng-container matColumnDef="birthday">
