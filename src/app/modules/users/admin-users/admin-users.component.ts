@@ -41,7 +41,6 @@ export class AdminusersComponent implements OnInit {
     this.loadPages();
   }
 
-  // Obtener todos los usuarios registrados
   getUserList() {
     this.userService.getUsersList().subscribe({
       next: (result: any) => {
@@ -76,7 +75,6 @@ export class AdminusersComponent implements OnInit {
         if (result.success) {
           this.getUserList();
           this.loadPages();
-          //this.isError = false;
           this._snackbar.open('El usuario se ha eliminado','', {
             duration: 5000,
             horizontalPosition: 'center',
@@ -90,21 +88,19 @@ export class AdminusersComponent implements OnInit {
             horizontalPosition: 'center',
             verticalPosition: 'bottom'
           });
-          //this.isError = true;
         }
     });
   }
 
   addEditUser(userId?: number) {
     const dialogRef = this.dialog.open(AddEditUserComponent, {
-      //width: '1000px',
       disableClose: true,
       data: {userId: userId},
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.loadPages();
       this.getUserList();
+      this.loadPages();
     });
   }
 
