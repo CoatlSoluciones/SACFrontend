@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PlayerService } from 'src/app/services/player.service';
 import { Player } from 'src/interfaces/player';
+import { AddEditPlayerComponent } from '../add-edit-player/add-edit-player.component';
 
 @Component({
   selector: 'app-admin-players',
@@ -26,6 +27,7 @@ export class AdminPlayersComponent implements OnInit {
       next: (result: any) => {
         if (result.success) {
           this.listPlayers = result.data;
+          console.log(this.listPlayers);
           this.loading = false;
           this.isError = false;
         }
@@ -34,6 +36,17 @@ export class AdminPlayersComponent implements OnInit {
         this.loading = false;
         this.isError = true;
       }
+    });
+  }
+
+  addEditPlayer(playerId?: number) {
+    const dialogRef = this.dialog.open(AddEditPlayerComponent, {
+      disableClose: true,
+      data: {playerId: playerId},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.getPlayerList();
     });
   }
 
