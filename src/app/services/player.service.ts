@@ -15,4 +15,8 @@ export class PlayerService {
     return this.http.get<Player[]>(`${environment.baseService}/players`);
   }
 
+  getPlayerById(playerId: number): Observable<Player[]> {
+    return this.http.get<Player[]>(`${environment.baseService}/players/${playerId}`);
+  }
+
 }
