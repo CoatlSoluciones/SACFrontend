@@ -1,0 +1,142 @@
+<h2 mat-dialog-title>{{ operation }} jugador</h2>
+<form [formGroup]="form" (ngSubmit)="addEditPlayer()">
+  <mat-dialog-content>
+
+    <mat-form-field>
+      <mat-label>Buscar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+    </mat-form-field>
+
+    <mat-table [dataSource]="dataSourceUsers" class="mat-elevation-z6">
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef class="id-column"> ID </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="id-column"> J9999<!-- {{element.nombre}} --> </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef class="name-column"> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="name-column"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <!-- Number player Column -->
+      <!-- <ng-container matColumnDef="birthday">
+        <mat-header-cell *matHeaderCellDef> Número </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.birthday | age}} </mat-cell>
+      </ng-container> -->
+
+      <!-- Rol column -->
+      <!-- <ng-container matColumnDef="gender">
+        <mat-header-cell *matHeaderCellDef> Género </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+      </ng-container> -->
+
+      <!-- Actions column -->
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+
+          <button mat-fab color="primary" aria-label="Example icon button with a delete icon" matTooltip="Agregar"
+            class="my-fab" (click)="removeUser(element.id)">
+            <mat-icon>add</mat-icon>
+          </button>
+
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumnsUsers"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumnsUsers;"></mat-row>
+    </mat-table>
+
+    <br>
+
+    <!-- Table players -->
+    <mat-table [dataSource]="dataSourcePlayers" class="mat-elevation-z8">
+
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef class="id-column"> ID </mat-header-cell>
+        <mat-cell *matCellDef="let element2" class="id-column"> J9999 <!-- {{element.nombre}} --> </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef class="name-column"> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="name-column"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <!-- Number player Column -->
+      <!-- <ng-container matColumnDef="number">
+        <mat-header-cell *matHeaderCellDef> Número </mat-header-cell>
+        <mat-cell *matCellDef="let element"> -->
+
+      <!--           <mat-form-field class="small-mat-form-field">
+            <mat-select [(value)]="selectedFood">
+              <mat-option></mat-option>
+              <mat-option [value]="option.value" *ngFor="let option of foods">{{ option.viewValue }}</mat-option>
+            </mat-select>
+          </mat-form-field> -->
+
+      <!-- </mat-cell>
+      </ng-container> -->
+
+      <!-- Rol column -->
+      <!-- <ng-container matColumnDef="rol">
+        <mat-header-cell *matHeaderCellDef> Rol </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+
+        </mat-cell>
+      </ng-container> -->
+
+      <!-- Actions column -->
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+
+          <!-- <button mat-fab [matMenuTriggerFor]="menu" class="my-fab" color="primary" matTooltip="Rol"><mat-icon>how_to_reg</mat-icon></button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>1</button>
+            <button mat-menu-item>2</button>
+          </mat-menu> -->
+
+          <!-- <button mat-fab [matMenuTriggerFor]="menu" class="my-fab" color="primary" matTooltip="Rol"><mat-icon>add_a_photo</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>1</button>
+            <button mat-menu-item>2</button>
+          </mat-menu> -->
+
+          <button mat-fab color="warn" aria-label="Example icon button with a delete icon" matTooltip="Quitar"
+            class="my-fab" (click)="removePlayer(element.id)">
+            <mat-icon>remove</mat-icon>
+          </button>
+
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumnsPlayers"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumnsPlayers;"></mat-row>
+    </mat-table>
+
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Equipo</mat-label>
+      <input matInput aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+          <img alt="" class="example-option-img" [src]="state.flag" height="25">
+          <span>{{state.name}}</span> |
+          <small>Population: {{state.population}}</small>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button type="button" mat-button (click)="cancel()">Cancelar</button>
+    <button [disabled]="form.invalid" type="submit" mat-button>Aceptar</button>
+  </mat-dialog-actions>
+</form>
