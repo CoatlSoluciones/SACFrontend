@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>{{ operation }} jugador</h2>
+<form [formGroup]="form" (ngSubmit)="addEditPlayer()">
+  <mat-dialog-content>
+
+<!--     <mat-selection-list #shoes [multiple]="false">
+      <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
+        {{shoe}}
+      </mat-list-option>
+    </mat-selection-list>
+    <p>
+      Option selected: {{shoes.selectedOptions.hasValue() ? shoes.selectedOptions.selected[0].value : 'None'}}
+    </p> -->
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button type="button" mat-button (click)="cancel()">Cancelar</button>
+    <button [disabled]="form.invalid" type="submit" mat-button>Aceptar</button>
+  </mat-dialog-actions>
+</form>
