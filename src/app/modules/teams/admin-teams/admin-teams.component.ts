@@ -28,12 +28,11 @@ export class AdminTeamsComponent implements OnInit {
               id: team.id,
               name: team.name,
               coach: `${team.coach.first} ${team.coach.middle} ${team.coach.last} ${team.coach.secondLast}`,
-              user_created: team.user_created,
-              created: team.created,
-              user_deleted: team.user_deleted,
-              deleted: team.deleted
+              gender: team.gender,
+              age: team.age
             }
           });
+          console.log(this.listTeams);
           this.loading = false;
           this.isError = false;
         }
