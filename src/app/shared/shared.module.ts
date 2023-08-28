@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf, AsyncPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,8 +19,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { AgePipe } from '../pipes/age.pipe';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatMenuModule} from '@angular/material/menu';
+
+
+
+
 
 
 @NgModule({
@@ -50,8 +56,10 @@ import { AgePipe } from '../pipes/age.pipe';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatCardModule
-    ],
+    MatCardModule,
+    MatAutocompleteModule,
+    MatMenuModule
+  ],
   exports: [
     MatIconModule,
     MatButtonModule,
@@ -76,7 +84,9 @@ import { AgePipe } from '../pipes/age.pipe';
     MatNativeDateModule,
     ReactiveFormsModule,
     MatCardModule,
-    AgePipe
+    AgePipe,
+    MatAutocompleteModule,
+    MatMenuModule
   ]
 })
 
