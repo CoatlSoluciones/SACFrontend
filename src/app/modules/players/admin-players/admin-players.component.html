@@ -2,9 +2,9 @@
     <img src="../../../assets/img/icons/soccer-team.png" alt="User" class="toolbar-image">
     <span class="toolbar-span"> Jugadores</span>
     <div class="example-spacer"></div>
-    <button mat-fab color="primary" aria-label="boton-borrar" matTooltip="Agregar" class="my-fab">
+    <button mat-fab color="primary" aria-label="boton-borrar" matTooltip="Agregar" class="my-fab" (click)="addEditPlayer()">
         <mat-icon>add</mat-icon>
-    </button>
+      </button>
 </mat-toolbar>
 <mat-spinner *ngIf="loading" diameter="50" class="spinner"></mat-spinner>
 <div class="list">
