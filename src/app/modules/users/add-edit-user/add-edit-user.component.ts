@@ -1,16 +1,14 @@
-import { Binary } from '@angular/compiler';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DateAdapter } from '@angular/material/core';
+//import { DateAdapter } from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+//import { Router } from '@angular/router';
 import { GenderService } from 'src/app/services/gender.service';
 import { StateService } from 'src/app/services/state.service';
 import { UserService } from 'src/app/services/user.service';
 import { Gender } from 'src/interfaces/gender';
 import { State } from 'src/interfaces/state';
-import { AdminusersComponent } from '../admin-users/admin-users.component';
 
 @Component({
   selector: 'app-add-edit-user',
@@ -30,8 +28,8 @@ export class AddEditUserComponent implements OnInit {
     private fb: FormBuilder,
     private _userService: UserService,
     private _snackbar: MatSnackBar,
-    private router: Router,
-    private dateAdapter: DateAdapter<any>,
+    //private router: Router,
+    //private dateAdapter: DateAdapter<any>,
     private _genderService: GenderService,
     private _stateService: StateService,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -120,9 +118,7 @@ export class AddEditUserComponent implements OnInit {
 
 
     if (this.form.valid) {
-      //this.dialogRef.close();
       if (this.userId == undefined) {
-        //this.dialogRef.close();
         console.log(newUser);
         this._userService.addUser(newUser).subscribe({
           next: (result: any) => {
@@ -136,7 +132,6 @@ export class AddEditUserComponent implements OnInit {
             }
           },
           error: (error) => {
-            //this.dialogRef.close();
             this._snackbar.open('Error al crear el usuario', '', {
               duration: 5000,
               horizontalPosition: 'center',
@@ -144,9 +139,7 @@ export class AddEditUserComponent implements OnInit {
             });
           }
         });
-        //this.dialogRef.close();
       } else {
-        //this.dialogRef.close();
         this._userService.updateUser(this.userId, newUser).subscribe({
           next: (result: any) => {
             console.log(newUser);
@@ -160,7 +153,6 @@ export class AddEditUserComponent implements OnInit {
             }
           },
           error: (error) => {
-            //this.dialogRef.close();
             this._snackbar.open('Error al actualizar el usuario', '', {
               duration: 5000,
               horizontalPosition: 'center',
@@ -168,11 +160,9 @@ export class AddEditUserComponent implements OnInit {
             });
           }
         });
-        //this.dialogRef.close();
       }
       this.dialogRef.close();
     }
-    //this.dialogRef.close();
   }
 
 }
