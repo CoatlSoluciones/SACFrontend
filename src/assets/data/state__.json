@@ -1,0 +1,123 @@
+[
+    {
+        "letter": "A",
+        "names": [
+            "Aguascalientes"
+        ]
+    },
+    {
+        "letter": "B",
+        "names": [
+            "Baja California",
+            "Baja California Sur"
+        ]
+    },
+    {
+        "letter": "C",
+        "names": [
+            "Campeche",
+            "Chiapas",
+            "Chihuahua",
+            "Coahuila",
+            "Colima"
+        ]
+    },
+    {
+        "letter": "D",
+        "names": [
+            "Durango"
+        ]
+    },
+    {
+        "letter": "E",
+        "names": [
+            "Estado de México"
+        ]
+    },
+    {
+        "letter": "G",
+        "names": [
+            "Guanajuato",
+            "Guerrero"
+        ]
+    },
+    {
+        "letter": "H",
+        "names": [
+            "Hidalgo"
+        ]
+    },
+    {
+        "letter": "J",
+        "names": [
+            "Jalisco"
+        ]
+    },
+    {
+        "letter": "M",
+        "names": [
+            "Michoacán",
+            "Morelos"
+        ]
+    },
+    {
+        "letter": "N",
+        "names": [
+            "Nayarit",
+            "Nuevo León"
+        ]
+    },
+    {
+        "letter": "O",
+        "names": [
+            "Oaxaca"
+        ]
+    },
+    {
+        "letter": "P",
+        "names": [
+            "Puebla"
+        ]
+    },
+    {
+        "letter": "Q",
+        "names": [
+            "Querétaro",
+            "Quintana Roo"
+        ]
+    },
+    {
+        "letter": "S",
+        "names": [
+            "San Luis Potosí",
+            "Sinaloa",
+            "Sonora"
+        ]
+    },
+    {
+        "letter": "T",
+        "names": [
+            "Tabasco",
+            "Tamaulipas",
+            "Tlaxcala"
+        ]
+    },
+    {
+        "letter": "V",
+        "names": [
+            "Veracruz"
+        ]
+    },
+    {
+        "letter": "Y",
+        "names": [
+            "Yucatán"
+        ]
+    },
+    {
+        "letter": "Z",
+        "names": [
+            "Zacatecas"
+        ]
+    }
+]
